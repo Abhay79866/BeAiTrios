@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #f46a25;
+    --color-peach-glow: rgba(244, 106, 37, 0.15);
+    --color-background-light: #FAF9F6;
+    --color-background-dark: #221610;
+    --color-cream: #FAF9F6;
+
+    --font-display: "Manrope", sans-serif;
+    --font-serif: "Playfair Display", serif;
+
+    --radius-lg: 2rem;
+    --radius-xl: 3rem;
+
+    --animate-marquee: marquee 40s linear infinite;
+    --animate-marquee-reverse: marquee-reverse 40s linear infinite;
+    --animate-marquee-btn-slow: marquee 15s linear infinite;
+    --animate-marquee-hover: marquee 5s linear infinite;
+    --animate-count-up: countUp 2s cubic-bezier(0.1, 0, 0.2, 1) forwards;
+    --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+    @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    @keyframes marquee-reverse {
+        0% {
+            transform: translateX(-50%);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes countUp {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+@layer components {
+    .glass-card {
+        @apply bg-white/40 backdrop-blur-[25px] border border-white/60 dark:bg-black/40 dark:border-primary/10 shadow-lg;
+    }
+
+    .mesh-bg {
+        @apply bg-background-light dark:bg-background-dark relative;
+        background-image:
+            radial-gradient(at 0% 0%, rgba(244, 106, 37, 0.15) 0px, transparent 50%),
+            radial-gradient(at 100% 0%, rgba(244, 106, 37, 0.1) 0px, transparent 50%),
+            radial-gradient(at 100% 100%, rgba(244, 106, 37, 0.05) 0px, transparent 50%),
+            radial-gradient(at 0% 100%, rgba(244, 106, 37, 0.1) 0px, transparent 50%);
+    }
+
+    .dot-expand-btn {
+        @apply relative overflow-hidden transition-all duration-500;
+    }
+
+    .dot-expand-btn::before {
+        content: '';
+        @apply absolute top-1/2 left-1/2 w-0 h-0 bg-white/20 rounded-full -translate-x-1/2 -translate-y-1/2 transition-all duration-700 pointer-events-none;
+    }
+
+    .dot-expand-btn:hover::before {
+        @apply w-[300%] h-[300%];
+    }
+
+    .glow-hover {
+        @apply transition-all duration-500;
+    }
+
+    .glow-hover:hover {
+        box-shadow: 0 0 25px 8px rgba(244, 106, 37, 0.35);
+    }
+
+    .squishy-card {
+        @apply transition-transform duration-500 hover:scale-[1.03] hover:-translate-y-2;
+    }
+}

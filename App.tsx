@@ -1,17 +1,17 @@
 
-import React, { useState } from 'react';
+import { useState, type FC, type FormEvent } from 'react';
 import Navbar from './components/Navbar';
 import DashboardPreview from './components/DashboardPreview';
 import ChatWidget from './components/ChatWidget';
 import { FEATURES, PROJECTS, TESTIMONIALS, PRICING_PLANS } from './constants';
 import { generateAudit, AuditResult } from './services/geminiService';
 
-const App: React.FC = () => {
+const App: FC = () => {
   const [auditInput, setAuditInput] = useState('');
   const [auditLoading, setAuditLoading] = useState(false);
   const [auditResult, setAuditResult] = useState<AuditResult | null>(null);
 
-  const handleAuditSubmit = async (e: React.FormEvent) => {
+  const handleAuditSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!auditInput.trim()) return;
     setAuditLoading(true);
@@ -28,27 +28,27 @@ const App: React.FC = () => {
   return (
     <div className="relative selection:bg-primary selection:text-white">
       <Navbar />
-      
+
       {/* Hero Section */}
-      <section className="min-h-screen mesh-bg flex flex-col justify-center items-center px-6 pt-32 pb-40 relative overflow-hidden">
+      <section className="min-h-screen mesh-bg flex flex-col justify-center items-center px-4 md:px-6 pt-24 pb-32 md:pt-32 md:pb-40 relative overflow-hidden">
         <div className="max-w-5xl text-center z-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-8 border-primary/20">
             <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
-            <span className="text-xs font-bold uppercase tracking-widest opacity-70">Next Gen AI Solutions</span>
+            <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest opacity-70">Next Gen AI Solutions</span>
           </div>
-          <h1 className="font-serif text-5xl md:text-8xl mb-8 leading-[1.1] animate-reveal">
-            Automating the Future <br/>
+          <h1 className="font-serif text-4xl md:text-6xl lg:text-8xl mb-6 md:mb-8 leading-[1.1] animate-reveal">
+            Automating the Future <br />
             <span className="italic text-primary">of Business</span>
           </h1>
           <p className="text-lg md:text-xl opacity-70 max-w-2xl mx-auto mb-12 leading-relaxed animate-reveal delay-150">
             We build bespoke AI ecosystems that scale with your vision. Turn complex data into effortless intelligence.
           </p>
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center mb-24 animate-reveal delay-300">
-            <button 
+            <button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="bg-primary text-white px-10 py-5 rounded-full text-lg font-bold dot-expand-btn glow-hover shadow-2xl shadow-primary/30 flex items-center gap-2 group"
             >
-              Get Started 
+              Get Started
               <span className="material-icons group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </button>
             <button className="glass-card px-10 py-5 rounded-full text-lg font-bold hover:bg-white/60 transition-all flex items-center gap-2 glow-hover">
@@ -56,21 +56,21 @@ const App: React.FC = () => {
             </button>
           </div>
         </div>
-        
+
         <DashboardPreview />
       </section>
 
       {/* Stats Bar */}
-      <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto glass-card rounded-2xl p-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center border-primary/5">
+      <section className="py-12 md:py-20 px-4 md:px-6">
+        <div className="max-w-6xl mx-auto glass-card rounded-2xl p-6 md:p-12 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center border-primary/5">
           {[
             { n: '50+', l: 'Projects Live' },
             { n: '99%', l: 'Client Joy' },
             { n: '24h', l: 'Turnaround' },
             { n: '12M', l: 'Tokens Processed' }
           ].map((stat, i) => (
-            <div key={i} className="squishy-card cursor-default group p-6 rounded-xl border border-transparent transition-all">
-              <div className="text-4xl md:text-5xl font-serif font-bold text-primary mb-2 animate-count-up">{stat.n}</div>
+            <div key={i} className="squishy-card cursor-default group p-4 md:p-6 rounded-xl border border-transparent transition-all">
+              <div className="text-3xl md:text-5xl font-serif font-bold text-primary mb-2 animate-count-up">{stat.n}</div>
               <div className="text-[10px] md:text-xs uppercase tracking-widest opacity-60 font-bold">{stat.l}</div>
             </div>
           ))}
@@ -78,12 +78,12 @@ const App: React.FC = () => {
       </section>
 
       {/* Features Grid */}
-      <section className="py-32 px-6" id="features">
+      <section className="py-20 md:py-32 px-4 md:px-6" id="features">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-20 gap-8">
             <div className="max-w-2xl">
-              <h2 className="font-serif text-5xl md:text-6xl mb-6 leading-tight">Strategic AI <br/><span className="text-primary italic">Pillars</span></h2>
-              <p className="text-lg md:text-xl opacity-70">Our framework integrates deep learning with human-centric design to solve the unsolvable.</p>
+              <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl mb-6 leading-tight">Strategic AI <br /><span className="text-primary italic">Pillars</span></h2>
+              <p className="text-base md:text-xl opacity-70">Our framework integrates deep learning with human-centric design to solve the unsolvable.</p>
             </div>
             <div className="hidden md:flex gap-4">
               <div className="w-12 h-12 rounded-full glass-card flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white transition-all glow-hover">
@@ -116,11 +116,11 @@ const App: React.FC = () => {
       </section>
 
       {/* Projects Sticky Scroll */}
-      <section className="py-32 px-6" id="projects">
+      <section className="py-20 md:py-32 px-4 md:px-6" id="projects">
         <div className="max-w-6xl mx-auto">
-          <div className="mb-20 text-center">
-            <h2 className="font-serif text-6xl md:text-7xl mb-4 leading-tight">Selected <span className="text-primary italic">Works</span></h2>
-            <p className="text-xl opacity-60">High-impact AI deployments across diverse industries.</p>
+          <div className="mb-12 md:mb-20 text-center">
+            <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-4 leading-tight">Selected <span className="text-primary italic">Works</span></h2>
+            <p className="text-lg md:text-xl opacity-60">High-impact AI deployments across diverse industries.</p>
           </div>
           <div className="space-y-[10vh] pb-32">
             {PROJECTS.map((proj, i) => (
@@ -131,11 +131,12 @@ const App: React.FC = () => {
                   </div>
                   <div className="md:w-1/2 flex flex-col justify-center items-start">
                     <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4">{proj.category}</span>
-                    <h3 className="font-serif text-4xl md:text-5xl mb-6">{proj.title}</h3>
-                    <p className="text-lg opacity-70 mb-10 leading-relaxed">{proj.description}</p>
+                    <h3 className="font-serif text-3xl md:text-5xl mb-6">{proj.title}</h3>
+                    <p className="text-base md:text-lg opacity-70 mb-10 leading-relaxed">{proj.description}</p>
                     <button className="group relative flex items-center overflow-hidden bg-background-dark text-white rounded-full h-[60px] w-[220px] glow-hover">
                       <div className="flex animate-marquee-btn-slow whitespace-nowrap">
-                         <span className="px-8 flex items-center h-full">View Case Study</span>
+                        <span className="px-8 flex items-center h-full">View Case Study</span>
+                        <span className="px-8 flex items-center h-full">View Case Study</span>
                       </div>
                       <span className="material-icons absolute right-4 z-10 group-hover:translate-x-1 transition-transform">arrow_forward</span>
                     </button>
@@ -143,12 +144,14 @@ const App: React.FC = () => {
                 </div>
               </div>
             ))}
+
+
           </div>
         </div>
       </section>
 
       {/* Testimonials Marquee */}
-      <section className="py-32 overflow-hidden bg-background-light border-y border-primary/10">
+      <section className="py-20 md:py-32 overflow-hidden bg-background-light border-y border-primary/10">
         <div className="relative flex w-full">
           <div className="flex animate-marquee whitespace-nowrap py-12">
             {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
@@ -168,12 +171,12 @@ const App: React.FC = () => {
       </section>
 
       {/* Audit & Contact Section */}
-      <section className="py-32 px-6 mesh-bg" id="contact">
+      <section className="py-20 md:py-32 px-4 md:px-6 mesh-bg" id="contact">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12">
           <div className="lg:w-1/2 glass-card p-8 md:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
-            <h3 className="font-serif text-4xl mb-4">Free AI Audit</h3>
+            <h3 className="font-serif text-3xl md:text-4xl mb-4">Free AI Audit</h3>
             <p className="mb-8 opacity-60 text-sm">Powered by Gemini. Describe your biggest business bottleneck.</p>
-            
+
             {auditResult ? (
               <div className="space-y-6 animate-reveal">
                 <div className="p-6 bg-primary/5 rounded-2xl border border-primary/10">
@@ -202,7 +205,7 @@ const App: React.FC = () => {
                     ))}
                   </ul>
                 </div>
-                <button 
+                <button
                   onClick={() => setAuditResult(null)}
                   className="w-full py-4 text-xs font-bold text-primary uppercase tracking-widest hover:bg-primary/5 transition-colors rounded-full"
                 >
@@ -213,15 +216,15 @@ const App: React.FC = () => {
               <form onSubmit={handleAuditSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <label className="text-sm font-bold opacity-60 ml-2">Describe Your Challenge</label>
-                  <textarea 
+                  <textarea
                     value={auditInput}
                     onChange={(e) => setAuditInput(e.target.value)}
                     required
-                    className="w-full bg-white/40 border-primary/10 rounded-2xl px-6 py-4 focus:ring-primary focus:border-primary placeholder:opacity-30 min-h-[150px] outline-none transition-all" 
-                    placeholder="Example: Our manual data entry takes 20 hours a week across 3 teams..." 
+                    className="w-full bg-white/40 border-primary/10 rounded-2xl px-6 py-4 focus:ring-primary focus:border-primary placeholder:opacity-30 min-h-[150px] outline-none transition-all"
+                    placeholder="Example: Our manual data entry takes 20 hours a week across 3 teams..."
                   />
                 </div>
-                <button 
+                <button
                   disabled={auditLoading}
                   className="w-full bg-primary text-white py-5 rounded-full font-bold text-lg dot-expand-btn glow-hover disabled:opacity-50"
                 >
@@ -230,7 +233,7 @@ const App: React.FC = () => {
               </form>
             )}
           </div>
-          
+
           <div className="lg:w-1/2 flex flex-col justify-center">
             <div className="glass-card p-10 rounded-[2.5rem] border-primary/5">
               <div className="flex items-center gap-4 mb-8">
@@ -243,11 +246,11 @@ const App: React.FC = () => {
                 </div>
               </div>
               <div className="grid grid-cols-7 gap-2 mb-8 text-center text-xs font-bold opacity-40">
-                {['S','M','T','W','T','F','S'].map(d => <div key={d}>{d}</div>)}
+                {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map(d => <div key={d}>{d}</div>)}
               </div>
               <div className="grid grid-cols-7 gap-2 text-center mb-10">
                 {[...Array(31)].map((_, i) => (
-                  <div key={i} className={`py-2 text-sm rounded-full transition-colors cursor-pointer hover:bg-primary/10 ${i+1 === 7 ? 'bg-primary text-white' : ''}`}>
+                  <div key={i} className={`py-2 text-sm rounded-full transition-colors cursor-pointer hover:bg-primary/10 ${i + 1 === 7 ? 'bg-primary text-white' : ''}`}>
                     {i + 1}
                   </div>
                 ))}
@@ -262,9 +265,9 @@ const App: React.FC = () => {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-32 px-6" id="pricing">
+      <section className="py-20 md:py-32 px-4 md:px-6" id="pricing">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-5xl mb-16 text-center italic">Investment <span className="not-italic text-primary">Plans</span></h2>
+          <h2 className="font-serif text-3xl md:text-5xl mb-12 md:mb-16 text-center italic">Investment <span className="not-italic text-primary">Plans</span></h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
             {PRICING_PLANS.map((plan) => (
               <div key={plan.id} className={`glass-card p-10 rounded-3xl squishy-card flex flex-col h-full border-primary/10 shadow-sm transition-all ${plan.isPopular ? 'bg-white/60 ring-2 ring-primary relative scale-105' : ''}`}>
@@ -294,14 +297,14 @@ const App: React.FC = () => {
       </section>
 
       {/* Newsletter */}
-      <section className="py-32 px-6">
+      <section className="py-20 md:py-32 px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="relative overflow-hidden bg-cream backdrop-blur-[20px] rounded-[3rem] p-12 md:p-20 shadow-2xl border border-white/40 text-center group transition-all duration-700">
+          <div className="relative overflow-hidden bg-cream backdrop-blur-[20px] rounded-[3rem] p-8 md:p-20 shadow-2xl border border-white/40 text-center group transition-all duration-700">
             <div className="relative z-10 max-w-2xl mx-auto">
-              <h2 className="font-serif text-4xl md:text-6xl mb-6">Stay Ahead of <span className="text-primary italic">the Curve</span></h2>
-              <p className="text-lg opacity-70 mb-10">Get weekly AI strategy insights and early access to our neural automation frameworks.</p>
+              <h2 className="font-serif text-3xl md:text-6xl mb-6">Stay Ahead of <span className="text-primary italic">the Curve</span></h2>
+              <p className="text-base md:text-lg opacity-70 mb-10">Get weekly AI strategy insights and early access to our neural automation frameworks.</p>
               <form className="flex flex-col md:flex-row gap-4 max-w-lg mx-auto" onSubmit={(e) => e.preventDefault()}>
-                <input className="flex-grow bg-white/60 border border-primary/10 rounded-full px-8 py-4 focus:ring-1 focus:ring-primary outline-none text-background-dark placeholder:opacity-30" placeholder="Your best email address" type="email"/>
+                <input className="flex-grow bg-white/60 border border-primary/10 rounded-full px-8 py-4 focus:ring-1 focus:ring-primary outline-none text-background-dark placeholder:opacity-30" placeholder="Your best email address" type="email" />
                 <button className="bg-primary text-white px-8 py-4 rounded-full font-bold shadow-xl shadow-primary/20 glow-hover">
                   Subscribe
                 </button>
@@ -313,8 +316,8 @@ const App: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-20 border-t border-primary/5 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <footer className="py-12 md:py-20 border-t border-primary/5 px-4 md:px-6">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
               <span className="text-white font-bold text-xs">Ai</span>

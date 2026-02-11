@@ -47,6 +47,29 @@ export const PROJECTS: Project[] = [
     category: 'Supply Chain / Logistics',
     description: 'Optimizing global logistics for mid-size manufacturers. Reduced redundant shipping cycles by 32% through real-time autonomous routing.',
     image: 'https://picsum.photos/1200/800?random=3'
+  },
+  {
+    id: 'focus-board',
+    title: 'FocusBoard',
+    category: 'Productivity / SaaS',
+    description: 'A minimalist yet powerful task management interface for creative teams. Features real-time collaboration and AI-driven priority sorting.',
+    image: 'https://picsum.photos/1200/800?random=7',
+    isReverse: true
+  },
+  {
+    id: 'mallupur-doors',
+    title: 'MalluPurDoors',
+    category: 'E-commerce / Retail',
+    description: 'Premium door retailer platform with AR visualization capabilities. Increased conversion rates by 45% through immersive product previews.',
+    image: 'https://picsum.photos/1200/800?random=8'
+  },
+  {
+    id: 'gva-library-db',
+    title: 'GVA Library DB',
+    category: 'Data Management / Education',
+    description: 'A comprehensive digital archive system for a historic library. Digitized 50,000+ manuscripts with semantic search enabled by vector embeddings.',
+    image: 'https://picsum.photos/1200/800?random=9',
+    isReverse: true
   }
 ];
 

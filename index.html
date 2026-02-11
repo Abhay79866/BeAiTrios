@@ -1,92 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AiTrios Agency | Automating the Future</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS (Locally installed) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#f46a25",
-                        "peach-glow": "rgba(244, 106, 37, 0.15)",
-                        "background-light": "#FAF9F6",
-                        "background-dark": "#221610",
-                        "cream": "#FAF9F6"
-                    },
-                    fontFamily: {
-                        "display": ["Manrope", "sans-serif"],
-                        "serif": ["Playfair Display", "serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "1rem",
-                        "lg": "2rem",
-                        "xl": "3rem",
-                        "full": "9999px"
-                    },
-                    animation: {
-                        'marquee': 'marquee 40s linear infinite',
-                        'marquee-reverse': 'marquee-reverse 40s linear infinite',
-                        'count-up': 'countUp 2s cubic-bezier(0.1, 0, 0.2, 1) forwards',
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        marquee: {
-                            '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(-50%)' },
-                        },
-                        'marquee-reverse': {
-                            '0%': { transform: 'translateX(-50%)' },
-                            '100%': { transform: 'translateX(0)' },
-                        },
-                        countUp: {
-                            'from': { opacity: '0', transform: 'translateY(10px)' },
-                            'to': { opacity: '1', transform: 'translateY(0)' }
-                        }
-                    }
-                },
-            },
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer components {
-            .glass-card {
-                @apply bg-white/40 backdrop-blur-[25px] border border-white/60 dark:bg-black/40 dark:border-primary/10 shadow-lg;
-            }
-            .mesh-bg {
-                @apply bg-background-light dark:bg-background-dark relative;
-                background-image: 
-                    radial-gradient(at 0% 0%, rgba(244, 106, 37, 0.15) 0px, transparent 50%),
-                    radial-gradient(at 100% 0%, rgba(244, 106, 37, 0.1) 0px, transparent 50%),
-                    radial-gradient(at 100% 100%, rgba(244, 106, 37, 0.05) 0px, transparent 50%),
-                    radial-gradient(at 0% 100%, rgba(244, 106, 37, 0.1) 0px, transparent 50%);
-            }
-            .dot-expand-btn {
-                @apply relative overflow-hidden transition-all duration-500;
-            }
-            .dot-expand-btn::before {
-                content: '';
-                @apply absolute top-1/2 left-1/2 w-0 h-0 bg-white/20 rounded-full -translate-x-1/2 -translate-y-1/2 transition-all duration-700 pointer-events-none;
-            }
-            .dot-expand-btn:hover::before {
-                @apply w-[300%] h-[300%];
-            }
-            .glow-hover {
-                @apply transition-all duration-500 hover:shadow-[0_0_25px_8px_rgba(244,106,37,0.35)];
-            }
-            .squishy-card {
-                @apply transition-transform duration-500 hover:scale-[1.03] hover:-translate-y-2;
-            }
-        }
-    </style>
-<script type="importmap">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind Config moved to tailwind.config.js -->
+    <!-- Custom Styles moved to index.css -->
+    <!-- <script type="importmap">
 {
   "imports": {
     "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
@@ -95,9 +23,12 @@
     "@google/genai": "https://esm.sh/@google/genai@^1.40.0"
   }
 }
-</script>
+</script> -->
 </head>
+
 <body class="bg-background-light text-background-dark font-display antialiased">
     <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
 </body>
+
 </html>

@@ -30,34 +30,38 @@ const App: FC = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="min-h-screen mesh-bg flex flex-col justify-center items-center px-4 md:px-6 pt-24 pb-32 md:pt-32 md:pb-40 relative overflow-hidden">
+      <section className="min-h-screen mesh-bg flex flex-col justify-center items-center px-4 md:px-6 pt-36 pb-32 md:pt-32 md:pb-40 relative overflow-hidden">
         <div className="max-w-5xl text-center z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-8 border-primary/20">
-            <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
-            <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest opacity-70">Next Gen AI Solutions</span>
+          <div className="inline-flex items-center gap-3 px-6 py-3 glass-card rounded-full mb-10 md:mb-12 border-primary/20">
+            <span className="flex h-3 w-3 rounded-full bg-primary animate-pulse"></span>
+            <span className="text-xs md:text-sm font-bold uppercase tracking-widest opacity-70">Next Gen AI Solutions</span>
           </div>
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-8xl mb-6 md:mb-8 leading-[1.1] animate-reveal">
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl mb-8 md:mb-10 leading-[1.05] animate-reveal">
             Automating the Future <br />
             <span className="italic text-primary">of Business</span>
           </h1>
-          <p className="text-lg md:text-xl opacity-70 max-w-2xl mx-auto mb-12 leading-relaxed animate-reveal delay-150">
-            We build bespoke AI ecosystems that scale with your vision. Turn complex data into effortless intelligence.
+          <p className="text-lg md:text-2xl opacity-60 max-w-2xl mx-auto mb-12 md:mb-16 leading-relaxed">
+            Deployment-ready AI agents<br className="md:hidden" /> that scale with your vision.
           </p>
-          <div className="flex flex-col md:flex-row gap-6 justify-center items-center mb-24 animate-reveal delay-300">
+          <div className="flex flex-col md:flex-row justify-center gap-6">
             <button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-primary text-white px-10 py-5 rounded-full text-lg font-bold dot-expand-btn glow-hover shadow-2xl shadow-primary/30 flex items-center gap-2 group"
+              className="bg-primary text-white px-10 py-5 rounded-full font-bold text-lg shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95 glow-hover"
             >
-              Get Started
-              <span className="material-icons group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              Start Free Audit
             </button>
-            <button className="glass-card px-10 py-5 rounded-full text-lg font-bold hover:bg-white/60 transition-all flex items-center gap-2 glow-hover">
-              View Showcase
+            <button
+              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              className="glass-card px-10 py-5 rounded-full font-bold text-lg border-primary/20 hover:bg-white/10 transition-all hover:scale-105 active:scale-95 glow-hover"
+            >
+              View Case Studies
             </button>
           </div>
         </div>
 
-        <DashboardPreview />
+        <div className="w-full mt-12 md:mt-[100px]">
+          <DashboardPreview />
+        </div>
       </section>
 
       {/* Stats Bar */}
@@ -125,14 +129,14 @@ const App: FC = () => {
           <div className="space-y-[10vh] pb-32">
             {PROJECTS.map((proj, i) => (
               <div key={proj.id} className={`sticky top-24 z-[${i + 1}]`}>
-                <div className={`glass-card rounded-[2.5rem] overflow-hidden p-8 md:p-12 flex flex-col ${proj.isReverse ? 'md:flex-row-reverse' : 'md:flex-row'} gap-12 min-h-[500px] border-white/40 shadow-2xl`}>
-                  <div className="md:w-1/2 rounded-2xl overflow-hidden h-[300px] md:h-auto border border-white/20">
+                <div className={`glass-card rounded-[2.5rem] overflow-hidden p-6 md:p-12 flex flex-col ${proj.isReverse ? 'md:flex-row-reverse' : 'md:flex-row'} gap-6 md:gap-12 min-h-auto md:min-h-[500px] border-white/40 shadow-2xl`}>
+                  <div className="md:w-1/2 rounded-2xl overflow-hidden h-[200px] md:h-auto border border-white/20">
                     <img alt={proj.title} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src={proj.image} />
                   </div>
                   <div className="md:w-1/2 flex flex-col justify-center items-start">
-                    <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4">{proj.category}</span>
-                    <h3 className="font-serif text-3xl md:text-5xl mb-6">{proj.title}</h3>
-                    <p className="text-base md:text-lg opacity-70 mb-10 leading-relaxed">{proj.description}</p>
+                    <span className="text-primary font-bold tracking-widest text-xs uppercase mb-3 md:mb-4">{proj.category}</span>
+                    <h3 className="font-serif text-3xl md:text-5xl mb-4 md:mb-6">{proj.title}</h3>
+                    <p className="text-base md:text-lg opacity-70 mb-6 md:mb-10 leading-relaxed">{proj.description}</p>
                     <button className="group relative flex items-center overflow-hidden bg-background-dark text-white rounded-full h-[60px] w-[220px] glow-hover">
                       <div className="flex animate-marquee-btn-slow whitespace-nowrap">
                         <span className="px-8 flex items-center h-full">View Case Study</span>
@@ -144,8 +148,6 @@ const App: FC = () => {
                 </div>
               </div>
             ))}
-
-
           </div>
         </div>
       </section>
@@ -333,8 +335,14 @@ const App: FC = () => {
         </div>
       </footer>
 
-      {/* Floating AI Consultant */}
-      <ChatWidget />
+      {/* Sticky Call Button */}
+      <a
+        href="tel:+918090385242"
+        className="fixed bottom-6 right-6 z-50 flex items-center justify-center gap-3 bg-primary text-white p-4 md:px-6 md:py-4 rounded-full shadow-2xl hover:scale-105 transition-transform animate-bounce-subtle group"
+      >
+        <span className="material-symbols-outlined text-2xl">call</span>
+        <span className="hidden md:block font-bold text-lg tracking-wide uppercase">Call Now</span>
+      </a>
     </div>
   );
 };

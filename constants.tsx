@@ -27,41 +27,38 @@ export const FEATURES: Feature[] = [
 
 export const PROJECTS: Project[] = [
   {
-    id: 'neural-nexus',
-    title: 'Neural Nexus',
-    category: 'Artificial Intelligence / SaaS',
-    description: 'A revolutionary predictive analytics suite that enables enterprise teams to forecast market volatility with 94% precision using proprietary transformer models.',
-    image: 'https://picsum.photos/1200/800?random=1'
+    id: 'drishtency-by-bm',
+    title: 'DristencyByBM',
+    category: 'Digital Marketing / Content',
+    description: 'Empowering brands to shine through creative content, influencer marketing, and expert social media management. We unleash organic growth by turning complex strategies into impactful, effortless digital engagement.',
+    image: '/images/dristency01.png',
+    link: 'https://drishtencybybm.com/'
   },
   {
-    id: 'visionary-ai',
-    title: 'Visionary AI',
-    category: 'Computer Vision / Retail',
-    description: 'Implementing advanced computer vision systems for global retailers. Automated stock monitoring and customer flow heatmaps.',
-    image: 'https://picsum.photos/1200/800?random=2',
+    id: 'gva-library',
+    title: 'GVA Library',
+    category: 'Community / Education',
+    description: 'A premier community resource in Mumbai offering a tranquil environment designed for focused learning and personal growth. We provide modern facilities and a diverse collection to empower residents in their pursuit of knowledge and excellence.',
+    image: '/images/gvalib02.png',
+    link: 'https://gva-library-app.web.app/',
     isReverse: true
-  },
-  {
-    id: 'quantum-flow',
-    title: 'Quantum Flow',
-    category: 'Supply Chain / Logistics',
-    description: 'Optimizing global logistics for mid-size manufacturers. Reduced redundant shipping cycles by 32% through real-time autonomous routing.',
-    image: 'https://picsum.photos/1200/800?random=3'
   },
   {
     id: 'focus-board',
     title: 'FocusBoard',
     category: 'Productivity / SaaS',
-    description: 'A minimalist yet powerful task management interface for creative teams. Features real-time collaboration and AI-driven priority sorting.',
-    image: 'https://picsum.photos/1200/800?random=7',
-    isReverse: true
+    description: 'The ultimate productivity companion designed for students and creators to master consistency and visualize momentum. Seamlessly track your habits and build unbreakable streaks through an intuitive, data-driven dashboard.',
+    image: '/images/focusboard03.png',
+    link: 'https://focus-board-eight.vercel.app/'
   },
+
   {
     id: 'mallupur-doors',
     title: 'MalluPurDoors',
     category: 'E-commerce / Retail',
     description: 'Premium door retailer platform with AR visualization capabilities. Increased conversion rates by 45% through immersive product previews.',
-    image: 'https://picsum.photos/1200/800?random=8'
+    image: '/images/mallupurdooro3.png',
+    link: 'https://mallupur-doors.web.app/'
   },
   {
     id: 'gva-library-db',
@@ -76,21 +73,21 @@ export const PROJECTS: Project[] = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 't1',
-    name: 'Alex Rivers',
+    name: 'Aarav Sharma',
     role: 'CEO, Flux Media',
     quote: "AiTrios didn't just automate our workflow; they reinvented how we think about our business growth.",
     avatar: 'https://picsum.photos/100/100?random=4'
   },
   {
     id: 't2',
-    name: 'Sarah Chen',
+    name: 'Priya Patel',
     role: 'CTO, DataNexus',
     quote: "The precision of their LLM integrations is unparalleled. Our response time dropped by 80%.",
     avatar: 'https://picsum.photos/100/100?random=5'
   },
   {
     id: 't3',
-    name: 'Marcus Thorne',
+    name: 'Vikram Singh',
     role: 'Founder, Peak Logic',
     quote: "They helped us transition from manual chaos to autonomous efficiency. ROI was clear within 60 days.",
     avatar: 'https://picsum.photos/100/100?random=6'

@@ -13,6 +13,7 @@ export interface Project {
   category: string;
   description: string;
   image: string;
+  link?: string;
   isReverse?: boolean;
 }
 

@@ -3,6 +3,7 @@ import { useState, type FC, type FormEvent } from 'react';
 import Navbar from './components/Navbar';
 import DashboardPreview from './components/DashboardPreview';
 import ChatWidget from './components/ChatWidget';
+import BookingCalendar from './components/BookingCalendar';
 import { FEATURES, PROJECTS, TESTIMONIALS, PRICING_PLANS } from './constants';
 import { generateAudit, AuditResult } from './services/geminiService';
 
@@ -137,13 +138,28 @@ const App: FC = () => {
                     <span className="text-primary font-bold tracking-widest text-xs uppercase mb-3 md:mb-4">{proj.category}</span>
                     <h3 className="font-serif text-3xl md:text-5xl mb-4 md:mb-6">{proj.title}</h3>
                     <p className="text-base md:text-lg opacity-70 mb-6 md:mb-10 leading-relaxed">{proj.description}</p>
-                    <button className="group relative flex items-center overflow-hidden bg-background-dark text-white rounded-full h-[60px] w-[220px] glow-hover">
-                      <div className="flex animate-marquee-btn-slow whitespace-nowrap">
-                        <span className="px-8 flex items-center h-full">View Case Study</span>
-                        <span className="px-8 flex items-center h-full">View Case Study</span>
-                      </div>
-                      <span className="material-icons absolute right-4 z-10 group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                    </button>
+                    {proj.link ? (
+                      <a
+                        href={proj.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group relative flex items-center overflow-hidden bg-background-dark text-white rounded-full h-[48px] w-[180px] md:h-[60px] md:w-[220px] glow-hover text-sm md:text-base"
+                      >
+                        <div className="flex animate-marquee-btn-slow whitespace-nowrap">
+                          <span className="px-6 md:px-8 flex items-center h-full">View Case Study</span>
+                          <span className="px-6 md:px-8 flex items-center h-full">View Case Study</span>
+                        </div>
+                        <span className="material-icons absolute right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">arrow_forward</span>
+                      </a>
+                    ) : (
+                      <button className="group relative flex items-center overflow-hidden bg-background-dark text-white rounded-full h-[48px] w-[180px] md:h-[60px] md:w-[220px] glow-hover text-sm md:text-base">
+                        <div className="flex animate-marquee-btn-slow whitespace-nowrap">
+                          <span className="px-6 md:px-8 flex items-center h-full">View Case Study</span>
+                          <span className="px-6 md:px-8 flex items-center h-full">View Case Study</span>
+                        </div>
+                        <span className="material-icons absolute right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">arrow_forward</span>
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
@@ -236,32 +252,8 @@ const App: FC = () => {
             )}
           </div>
 
-          <div className="lg:w-1/2 flex flex-col justify-center">
-            <div className="glass-card p-10 rounded-[2.5rem] border-primary/5">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-primary text-3xl">calendar_today</span>
-                </div>
-                <div>
-                  <h4 className="text-2xl font-bold">Discovery Call</h4>
-                  <p className="text-sm opacity-60">15-minute quick strategy pulse check</p>
-                </div>
-              </div>
-              <div className="grid grid-cols-7 gap-2 mb-8 text-center text-xs font-bold opacity-40">
-                {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map(d => <div key={d}>{d}</div>)}
-              </div>
-              <div className="grid grid-cols-7 gap-2 text-center mb-10">
-                {[...Array(31)].map((_, i) => (
-                  <div key={i} className={`py-2 text-sm rounded-full transition-colors cursor-pointer hover:bg-primary/10 ${i + 1 === 7 ? 'bg-primary text-white' : ''}`}>
-                    {i + 1}
-                  </div>
-                ))}
-              </div>
-              <div className="flex flex-wrap gap-3 mb-10">
-                <button className="px-6 py-3 glass-card rounded-full text-sm font-medium hover:bg-white transition-colors glow-hover">09:00 AM</button>
-                <button className="px-6 py-3 bg-primary text-white rounded-full text-sm font-medium glow-hover">02:00 PM</button>
-              </div>
-            </div>
+          <div className="lg:w-1/2 flex flex-col justify-center max-w-md mx-auto w-full">
+            <BookingCalendar />
           </div>
         </div>
       </section>

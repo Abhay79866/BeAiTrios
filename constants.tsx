@@ -118,3 +118,45 @@ export const PRICING_PLANS: PricingPlan[] = [
     features: ['Unlimited Agents', 'Full Infrastructure Migration', 'Dedicated AI Engineer']
   }
 ];
+
+export const SERVICES_DATA: import('./types').ServiceSectionData = {
+  mainHeader: "Beyond Development. We Build Digital Growth.",
+  subHeader: "AITrios combines cutting-edge AI automation with enterprise-grade software to scale your business while you focus on what matters.",
+  sections: [
+    {
+      head: "Autonomous AI Workforce",
+      subHead: "Replace repetitive tasks with 24/7 intelligent agents.",
+      points: [
+        { title: "Custom AI Agents", desc: "Specialized agents for Sales, HR, and Customer Support." },
+        { title: "Workflow Automation", desc: "End-to-end integration (Zapier/Make/Custom) to connect your apps." },
+        { title: "AI Knowledge Bases", desc: "Interactive \"Company Brains\" powered by your own data." }
+      ]
+    },
+    {
+      head: "Next-Gen Enterprise Ecosystems",
+      subHead: "Industry-specific software designed to recover lost revenue.",
+      points: [
+        { title: "Smart School ERP", desc: "Complete management with AI-powered attendance and fee tracking." },
+        { title: "FoodKing QR Systems", desc: "Contactless ordering and AI-driven inventory management for restaurants." },
+        { title: "Custom SaaS & PWAs", desc: "High-performance web apps built for speed and scalability." }
+      ]
+    },
+    {
+      head: "AI-Driven Brand Acceleration",
+      subHead: "High-fidelity content and elite web presence.",
+      points: [
+        { title: "Dynamic Landing Pages", desc: "Conversion-optimized sites with AI-generated copy and visuals." },
+        { title: "AI Video Production", desc: "Viral Shorts and promotional videos using the latest Veo technology." },
+        { title: "Google Business Growth", desc: "Automated GMB management to dominate local search results." }
+      ]
+    },
+    {
+      head: "AI Readiness & Audits",
+      subHead: "Identifying 'Profit Leaks' in your current business model.",
+      points: [
+        { title: "Process Mapping", desc: "We analyze your workflow and show you where AI can save time." },
+        { title: "Technical Consulting", desc: "Career and business audits for scaling digital infrastructure." }
+      ]
+    }
+  ]
+};

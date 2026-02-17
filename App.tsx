@@ -3,6 +3,7 @@ import { useState, type FC, type FormEvent } from 'react';
 import Navbar from './components/Navbar';
 import DashboardPreview from './components/DashboardPreview';
 import ChatWidget from './components/ChatWidget';
+import ServiceSection from './components/ServiceSection';
 import BookingCalendar from './components/BookingCalendar';
 import { FEATURES, PROJECTS, TESTIMONIALS, PRICING_PLANS } from './constants';
 import { generateAudit, AuditResult } from './services/geminiService';
@@ -119,6 +120,9 @@ const App: FC = () => {
           </div>
         </div>
       </section>
+
+
+      <ServiceSection />
 
       {/* Projects Sticky Scroll */}
       <section className="py-20 md:py-32 px-4 md:px-6" id="projects">

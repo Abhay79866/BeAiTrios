@@ -13,11 +13,12 @@ const Navbar: React.FC = () => {
         </div>
         <div className="hidden md:flex items-center gap-8 text-sm font-medium opacity-80">
           <a className="hover:text-primary transition-colors" href="#features">Features</a>
+          <a className="hover:text-primary transition-colors" href="#services">Services</a>
           <a className="hover:text-primary transition-colors" href="#projects">Projects</a>
           <a className="hover:text-primary transition-colors" href="#pricing">Pricing</a>
           <a className="hover:text-primary transition-colors" href="#contact">Contact</a>
         </div>
-        <button 
+        <button
           onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           className="bg-primary text-white px-6 py-2 rounded-full text-sm font-bold dot-expand-btn glow-hover shadow-md"
         >

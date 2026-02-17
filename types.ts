@@ -33,3 +33,20 @@ export interface PricingPlan {
   features: string[];
   isPopular?: boolean;
 }
+
+export interface ServicePoint {
+  title: string;
+  desc: string;
+}
+
+export interface ServiceItem {
+  head: string;
+  subHead: string;
+  points: ServicePoint[];
+}
+
+export interface ServiceSectionData {
+  mainHeader: string;
+  subHeader: string;
+  sections: ServiceItem[];
+}
